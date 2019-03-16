@@ -1,0 +1,36 @@
+<body>
+    <div class="jumbotron text-center">
+        <div class="overlay">
+        </div>
+        <div class="background-image">
+        </div>
+        <div class="caption">
+            <h1>Saved Articles</h1>
+            <p>Your Saved Articles</p>
+        </div>
+    </div>
+    <div class="container-fluid article-container">
+        {{#if article}}
+        {{#each article}}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>{{this.title}}</h4>
+            </div>
+            <div class="panel-body">
+                <p> {{this.summary}}</p>
+                <a href={{this.link}} target="_blank">{{this.link}}</a>
+                <br><br>
+                {{!-- <button type="button" class="btn btn-success addNote" data-toggle="modal" data-target="#noteModal{{this._id}}" data-id={{this._id}}>Add a Note</button> --}}
+                <button type="button" class="btn btn-danger delete" data-id={{this._id}}>Delete</button>
+            </div>
+        </div>
+        {{/each}}
+        {{else}}
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h4>You have no saved articles.</h4>
+            </div>
+        </div>
+        {{/if}}
+    </div>
+</body>

@@ -1,0 +1,43 @@
+
+
+
+
+
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4"> Mongo Scraper </h1>
+        <p class="lead">New York Times Edition</p>
+    </div>
+</div>
+    {{#if article}} 
+    {{#each article}}
+        <div class = "panel panel-default text-center"> 
+            <h3> {{this.title}} </h3>
+        </div>
+        <div class = "panel-body text-center p-3 border"> 
+           <p> {{this.summary}} </p> 
+           <a href = {{this.link}} target="_blank"> {{this.link}}</a>
+           <br/> 
+           <br/> 
+           <button type="button" class ="btn btn-sucess save pt-3" data-id={{this.id}}>Save Article </button>
+        </div>
+    
+    {{/each}}
+    {{else}} 
+        <div class = "panel panel-default"> 
+            <div class = "panel-body"> 
+                <h3> No New Articles </h3>
+            </div>
+        </div>
+    {{/if}}
+
+    <div class="card"> 
+        <div class ="card-header text-center"> 
+            <p> What would you like to do? </p>
+        </div>
+        <div class = "card-body text-center"> 
+            <h4> <a class ="scrape-new"> Scrape new articles </a> </h4>
+        </div>
+        <div> <a href="/saved"> Go to saved articles </div>
+    </div>
